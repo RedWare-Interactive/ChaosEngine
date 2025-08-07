@@ -16,6 +16,11 @@ else()
 	set(PROJECT_VERSION_STRING "${PROJECT_VERSION_TAG}${PROJECT_VERSION}")
 endif()
 
+configure_file(
+	${CMAKE_CURRENT_LIST_DIR}/ChaosInfo.hpp.in
+	${CMAKE_CURRENT_LIST_DIR}/ChaosInfo.hpp
+)
+
 option(BuildExample "Build a demostration code" OFF)
 
 add_library(ChCore SHARED

@@ -1,7 +1,8 @@
 #include <ChaosEngine/engine.hpp>
+#include "ChaosInfo.hpp"
 
 Engine::Engine(string gameName, int gameWidth, int gameHeight) {
-	log("Starting ChaosEngine.");
+	log("Starting ChaosEngine version: " + string(CHAOS_VERSION));
 	game = gameName;
 	width = gameWidth;
 	height = gameHeight;
