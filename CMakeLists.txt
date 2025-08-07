@@ -16,10 +16,16 @@ else()
 	set(PROJECT_VERSION_STRING "${PROJECT_VERSION_TAG}${PROJECT_VERSION}")
 endif()
 
+option(BuildExample "Build a demostration code" OFF)
+
 add_library(ChCore SHARED
 	engine.cpp
 	LogSys/log.cpp
 	LogSys/err.cpp
 )
+
+if (BuildDemo)
+	add_subdirectory(demo)
+endif()
 
 target_include_directories(ChCore PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
