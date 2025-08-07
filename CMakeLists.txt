@@ -25,8 +25,8 @@ option(BuildExample "Build a demostration code" OFF)
 
 add_library(ChCore SHARED
 	engine.cpp
-	LogSys/log.cpp
-	LogSys/err.cpp
+	Log/log.cpp
+	Log/err.cpp
 )
 
 if (BuildDemo)
