@@ -7,6 +7,8 @@ project(ChaosEngine VERSION 0.0.1)
 # D = Delta
 # Delta version are version unfinishes after first release
 set(PROJECT_VERSION_TAG "A")
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (PROJECT_VERSION_TAG STREQUAL "R")
 	set(PROJECT_VERSION_STRING "${PROJECT_VERSION}")
