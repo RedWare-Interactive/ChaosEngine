@@ -11,6 +11,7 @@ public:
 	Engine();
 	~Engine();
 	void log(string msg);
+	void err(string msg, int exitCode=0);
 };
 
 #endif // ENGINE_HPP
