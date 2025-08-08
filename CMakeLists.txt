@@ -21,6 +21,9 @@ configure_file(
 	${CMAKE_CURRENT_LIST_DIR}/ChaosInfo.hpp
 )
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(XCB REQUIRED xcb)
+
 option(BuildExample "Build a demostration code" OFF)
 
 add_library(ChCore SHARED
@@ -33,4 +36,9 @@ if (BuildDemo)
 	add_subdirectory(demo)
 endif()
 
-target_include_directories(ChCore PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
+target_include_directories(ChCore PUBLIC
+	${CMAKE_CURRENT_LIST_DIR}/include
+	${XCB_INCLUDE_DIRS}
+)
+
+target_link_libraries(ChCore PUBLIC ${XCB_LIBRARIES})

@@ -2,4 +2,5 @@
 
 void Engine::err(string msg, int exitCode) {
         cerr << "[ERROR] " << msg << endl;
+	close(exitCode);
 }
