@@ -47,7 +47,7 @@ Engine::Engine(int argc, char *argv[], string gameTitle, string gameDev, int gam
 	}
 
 	logFile = fopen(logFileName.c_str(), "a");
-	log("Starting ChaosEngine");
+	log("Starting ChaosEngine.");
 
 	width = gameWidth;
 	height = gameHeight;
@@ -65,6 +65,7 @@ Engine::Engine(int argc, char *argv[], string gameTitle, string gameDev, int gam
 }
 
 Engine::~Engine() {
-	log("Stopping ChaosEngine with exit code " + to_string(exitCode) + "\n");
+	log("Stopping ChaosEngine with exit code " + to_string(exitCode));
+	fprintf(logFile, "|--- End of log ---|\n");
 	fclose(logFile);
 }
