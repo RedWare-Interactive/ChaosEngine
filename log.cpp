@@ -3,12 +3,12 @@
 void Engine::log(string msg) {
 	time(&currentTime);
 	struct tm *t = localtime(&currentTime);
-	char buff[25];
+	char timeMsg[25];
 
-	strftime(buff, sizeof(buff), "[%d/%m/%Y %H:%M:%S]: ", t);
+	strftime(timeMsg, sizeof(timeMsg), "[%d/%m/%Y %H:%M:%S]: ", t);
 
-	string logMsg = buff + msg + "\n";
+	string logMsg = string(timeMsg) + msg;
 
-	printf(logMsg.c_str());
-	fprintf(logFile, logMsg.c_str());
+	printf("%s\n", logMsg.c_str());
+	fprintf(logFile, "%s\n", logMsg.c_str());
 }

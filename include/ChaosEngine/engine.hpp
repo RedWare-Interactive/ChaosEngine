@@ -2,7 +2,6 @@
 #define ENGINE_HPP
 
 #include <string>
-#include <iostream>
 #include <time.h>
 
 using namespace std;
