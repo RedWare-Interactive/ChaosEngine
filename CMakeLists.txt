@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(ChCore SHARED
 	engine.cpp
-	log.cpp
+	utils/logger.cpp
 )
 
 target_include_directories(ChCore PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)

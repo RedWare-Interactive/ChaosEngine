@@ -2,7 +2,6 @@
 #define ENGINE_HPP
 
 #include <string>
-#include <time.h>
 
 using namespace std;
 
@@ -18,8 +17,8 @@ public:
 	int width;
 	int height;
 private:
-	time_t currentTime;
-	FILE *logFile;
+	void startLog();
+	void stopLog();
 };
 
 #endif // ENGINE_HPP
