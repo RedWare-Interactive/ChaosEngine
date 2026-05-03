@@ -1,6 +1,5 @@
 #include "ChaosEngine/engine.hpp"
 #include <unistd.h>
-#include <sys/stat.h>
 #include <time.h>
 
 time_t currentTime;
@@ -10,17 +9,8 @@ FILE *logFile;
 
 void Engine::startLog() {
 	if (getenv("HOME")) {
-		dataDir = string(getenv("HOME")) + "/.local";
-		mkdir(dataDir.c_str(), 0755);
-
-		dataDir += "/share";
-		mkdir(dataDir.c_str(), 0755);
-
-		dataDir += "/" + developer;
-		mkdir(dataDir.c_str(), 0755);
-
-		dataDir += "/" + title + "/";
-		mkdir(dataDir.c_str(), 0755);
+		dataDir = string(getenv("HOME")) + "/.local/share/" + developer + "/" + title + "/";
+		fsmkdir(dataDir.c_str());
 	}
 
 	string logFileName = dataDir + "latest.log";
@@ -65,5 +55,8 @@ void Engine::log(string msg) {
 	string logMsg = string(timeMsg) + msg;
 
 	printf("%s\n", logMsg.c_str());
-	fprintf(logFile, "%s\n", logMsg.c_str());
+
+	if (logFile) {
+		fprintf(logFile, "%s\n", logMsg.c_str());
+	}
 }
